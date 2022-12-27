@@ -1,0 +1,164 @@
+/*------------------*/
+/* $Catalog
+/*------------------*/
+/* $Catalog
+//* $Variables
+/* $Global
+/* $Outer Box
+/* $Header
+/* $Image Slider
+/* $Arrow button
+/* $Page button
+
+/*------------------*/
+/* $Font
+/*------------------*/
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans')
+//*------------------*/
+//* $Variables
+//*------------------*/
+//color
+$primary-color: #e5e5e5
+$active-color: #f8c43a
+$darkgrey: #878787
+$white: #fff
+$black: #000
+$bg-color: #f8f8f8
+//font
+$main-font: 'Merriweather Sans', sans-serif
+$arrow-font:'Comic Sans MS'
+/*------------------*/
+/* $Global
+/*------------------*/
+*
+  position: relative
+  box-sizing: border-box
+  color: $black
+body
+  margin: 0
+  padding: 0
+  font-family: $main-font
+  background-color: $bg-color
+.container
+  padding: 24px 28px
+  overflow: hidden
+  @media (max-width: 768px)
+  padding-top: 12px
+/*------------------*/
+/* $Outer Box
+/*------------------*/
+.box
+  background-color: $primary-color
+  text-align: center
+  max-width: 700px
+  margin: 0 auto
+  box-shadow: 8px 8px 12px rgba(0,0,0,0.6)
+  overflow: hidden
+/*------------------*/
+/* $Header
+/*------------------*/
+h3
+  margin: 4px 0
+  text-align: center
+  height: 60px
+  line-height: 60px
+  font-size: 42px
+  @media (max-width:576px)
+    font-size: 30px
+/*------------------*/
+/* $Image Slider
+/*------------------*/
+.imgbox
+  .main
+    display: block
+    width: 100%
+.thumb
+  display: block
+  width: 160px
+  position: absolute
+  bottom: 75px
+  left: 50%
+  transform: translateX(-50%)
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.6)
+  visibility: hidden
+  opacity: 0
+  transition: all .15s
+  &.show
+    visibility: visible
+    opacity: 1
+/*------------------*/
+/* $Arrow button
+/*------------------*/
+$arrow-size: 36px
+.imgbox
+  span
+    display: block
+    width: $arrow-size
+    height: $arrow-size
+    border-radius: 50%
+    background-color: $primary-color
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    color: $darkgrey
+    font-family: $arrow-font
+    font-size: 24px
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4)
+    cursor: pointer
+    user-select: none
+    transition: all .15s
+    @media (max-width:768px)
+      display: none
+    &.prev
+      left: 8px
+      animation: arrow_prev 1s infinite
+    &.next
+      right: 8px
+      animation: arrow_next 1s infinite
+    &:hover
+      color: $black
+      // animation-play-state: paused
+@keyframes arrow_prev
+  50% 
+    transform: translate(15%,-50%)
+  100% 
+    transform: translate(0%,-50%)
+
+@keyframes arrow_next
+  50% 
+    transform: translate(-15%,-50%)
+  100% 
+    transform: translate(0%,-50%)
+/*------------------*/
+/* $Page button
+/*------------------*/
+$page-size: 36px
+.page
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translateX(-50%)
+  span
+    display: inline-block
+    width: $page-size
+    height: $page-size
+    line-height: $page-size
+    background-color: $primary-color
+    border-radius: 50%
+    margin: 0 8px
+    color: $darkgrey
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4)
+    cursor: pointer
+    user-select: none
+    transition: all .15s
+    @media (max-width:768px)
+      font-size: 0
+      width: calc(#{$page-size} / 2)
+      height: calc(#{$page-size} / 2)
+      line-height: 0px
+      margin: 0 4px
+    &.active
+      color: $black
+      background-color: $active-color
+    &:hover:not(.active)
+      color: $black
